@@ -5,7 +5,7 @@ var HTTP = require('../../utils/http');
 
 module.exports = React.createClass({
   shouldComponentUpdate: function(nextProps) {
-    return this.props.blabs.deref() !== nextProps.blabs.deref();
+    return !Immutable.is(this.props.blabs, nextProps.blabs);
   },
   componentDidMount: function() {
     this.readBlabsFromAPI();
