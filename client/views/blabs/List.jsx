@@ -18,15 +18,15 @@ module.exports = React.createClass({
     }.bind(this));
   },
   render: function() {
-    var blabs = this.props.blabs.deref().toJS().map(function(blab) {
+    var blabs = this.props.blabs.map(function(blab) {
       return (
-        <Blab key={blab.id} content={blab.content} />
+        <Blab key={blab.get('id')} blab={blab} />
       );
     });
 
     return (
       <ul className="blabs-list">
-        {blabs}
+        {blabs.toArray()}
       </ul>
     );
   }
