@@ -15,7 +15,7 @@ Router.run(routes, Router.HistoryLocation, function (matchedRoute) {
 });
 
 function renderApplication() {
-  React.render(<Handler appState={state} showMenu={state.reference(['layout', 'showMenu']).cursor()} />, document.body);
+  React.render(<Handler appState={state.reference().cursor()} />, document.body);
 }
 
 state.on('swap', function() {

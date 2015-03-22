@@ -6,12 +6,12 @@ var RouteHandler = Router.RouteHandler;
 
 module.exports = React.createClass({
   handleMenuClick: function() {
-    this.props.showMenu.update(function() {
-      return !this.props.showMenu.deref();
-    }.bind(this));
+    this.props.appState.updateIn(['layout', 'showMenu'], function(showMenu) {
+      return !showMenu;
+    });
   },
   render: function() {
-    var menu = this.props.showMenu.deref() ? 'show-menu' : 'hide-menu';
+    var menu = this.props.appState.getIn(['layout', 'showMenu']) ? 'show-menu' : 'hide-menu';
 
     return (
       <div id="app" className={menu}>
