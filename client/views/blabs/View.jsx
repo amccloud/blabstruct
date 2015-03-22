@@ -6,8 +6,8 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="blabs-view">
-        <BlabsForm blabs={this.props.appState.reference(['stores', 'blab', 'index']).cursor()} />
-        <BlabsList blabs={this.props.appState.reference(['stores', 'blab', 'index']).cursor()} />
+        <BlabsForm blabs={this.props.appState.getIn(['stores', 'blab', 'index'])} />
+        <BlabsList blabs={this.props.appState.getIn(['stores', 'blab', 'index'])} />
       </div>
     );
   }
