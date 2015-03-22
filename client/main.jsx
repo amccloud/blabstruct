@@ -9,6 +9,10 @@ var Immstruct = require('immstruct');
 var routes = require('./routes.jsx');
 var state = require('./state.js');
 
+state.on('swap', function() {
+  renderApplication();
+});
+
 Router.run(routes, Router.HistoryLocation, function (matchedRoute) {
   Handler = matchedRoute;
   renderApplication();
@@ -17,7 +21,3 @@ Router.run(routes, Router.HistoryLocation, function (matchedRoute) {
 function renderApplication() {
   React.render(<Handler appState={state.reference().cursor()} />, document.body);
 }
-
-state.on('swap', function() {
-  renderApplication();
-});
